@@ -1,1 +1,1 @@
-charts
+public-charts
