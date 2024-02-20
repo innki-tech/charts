@@ -1,4 +1,4 @@
-![Docker Pulls](https://img.shields.io/docker/pulls/prodrigestivill/pgdump)
+![Docker Pulls](https://img.shields.io/docker/pulls/prodrigestivill/postgres-backup-local)
 
 # pgdump
 
@@ -99,7 +99,7 @@ By default this container makes daily backups, but you can start a manual backup
 This script as example creates one backup as the running user and saves it the working folder.
 
 ```sh
-docker run --rm -v "$PWD:/backups" -u "$(id -u):$(id -g)" -e POSTGRES_HOST=postgres -e POSTGRES_DB=dbname -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password  prodrigestivill/pgdump /backup.sh
+docker run --rm -v "$PWD:/backups" -u "$(id -u):$(id -g)" -e POSTGRES_HOST=postgres -e POSTGRES_DB=dbname -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password  prodrigestivill/postgres-backup-local /backup.sh
 ```
 
 ### Automatic Periodic Backups
