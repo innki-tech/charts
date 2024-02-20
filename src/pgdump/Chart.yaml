@@ -1,0 +1,13 @@
+---
+apiVersion: v2
+appVersion: v0.1.5
+description: Backup Postgres Database
+name: pgdump
+version: 0.1.5
+keywords:
+  - postgresql
+  - backup
+  - pgdump
+maintainers:
+  - name: Innki Tech
+    email: contact@innki.tech

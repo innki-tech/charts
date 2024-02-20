@@ -1,5 +1,22 @@
 apiVersion: v1
 entries:
+  pgdump:
+  - apiVersion: v2
+    appVersion: v0.1.5
+    created: "2024-02-20T10:52:49.192236+01:00"
+    description: Backup Postgres Database
+    digest: 7f2e2c3955b7ab88f055dce38ed34410e83f5b239e40cc0b5e6baa42e9c4bfc8
+    keywords:
+    - postgresql
+    - backup
+    - pgdump
+    maintainers:
+    - email: contact@innki.tech
+      name: Innki Tech
+    name: pgdump
+    urls:
+    - https://public-charts.innki.tech/pgdump-0.1.5.tgz
+    version: 0.1.5
   shlink:
   - annotations:
       artifacthub.io/changes: |-
@@ -7,7 +24,7 @@ entries:
           description: Upgraded `common` chart dependency to version 4.5.2
     apiVersion: v2
     appVersion: 2.7.1
-    created: "2023-11-29T13:48:53.56413+01:00"
+    created: "2024-02-20T10:52:49.200129+01:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -45,7 +62,7 @@ entries:
           description: Upgraded `common` chart dependency to version 4.5.2
     apiVersion: v2
     appVersion: 1.25.2
-    created: "2023-11-29T13:48:53.569964+01:00"
+    created: "2024-02-20T10:52:49.20761+01:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -75,4 +92,4 @@ entries:
     urls:
     - https://public-charts.innki.tech/vaultwarden-5.3.2.tgz
     version: 5.3.2
-generated: "2023-11-29T13:48:53.557829+01:00"
+generated: "2024-02-20T10:52:49.191816+01:00"
