@@ -1,5 +1,5 @@
 image:
-  repository: prodrigestivill/postgres-backup-local
+  repository: prodrigestivill/pgdump
   tag: latest
 
   ## set to true if you would like to see extra information on logs
@@ -23,7 +23,7 @@ image:
   pullSecrets: []
 
 auth:
-  #existingPasswordSecret: ""
+  existingPasswordSecret: ""
   postgres_user: ""
   postgres_password: ""
 
@@ -51,11 +51,11 @@ replicas: 1
 
 persistence:
 
-  ## @param persistence.enabled Enable postgres-backup-local data persistence using PVC
+  ## @param persistence.enabled Enable pgdump data persistence using PVC
   ##
   enabled: false
 
-  ## @param persistence.storageClass PVC Storage Class for postgres-backup-local data volume
+  ## @param persistence.storageClass PVC Storage Class for pgdump data volume
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
   ## If undefined (the default) or set to null, no storageClassName spec is
@@ -71,7 +71,7 @@ persistence:
   ##
   selector: {}
 
-  ## @param persistence.accessMode PVC Access Mode for postgres-backup-local data volume
+  ## @param persistence.accessMode PVC Access Mode for pgdump data volume
   ##
   accessMode: ReadWriteOnce
 
@@ -82,7 +82,7 @@ persistence:
   existingClaim: ""
 
   ## @param persistence.mountPath The path the volume will be mounted at
-  ## Note: useful when using custom postgres-backup-local images
+  ## Note: useful when using custom pgdump images
   ##
   mountPath: /backups
 
@@ -91,7 +91,7 @@ persistence:
   ##
   subPath: ""
 
-  ## @param persistence.size PVC Storage Request for postgres-backup-local data volume
+  ## @param persistence.size PVC Storage Request for pgdump data volume
   ##
   size: 20Gi
 

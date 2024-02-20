@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ include "postgres-backup-local.fullname" . }}
+  name: {{ include "pgdump.fullname" . }}
 spec:
   selector:
     matchLabels:
-       {{- include "postgres-backup-local.selectorLabels" . | nindent 6 }}
-  serviceName: {{ include "postgres-backup-local.fullname" . }}
+       {{- include "pgdump.selectorLabels" . | nindent 6 }}
+  serviceName: {{ include "pgdump.fullname" . }}
   replicas: {{ .Values.replicas }}
   template:
     metadata:
       labels:
-        {{- include "postgres-backup-local.labels" . | nindent 8 }}
+        {{- include "pgdump.labels" . | nindent 8 }}
     spec:
       securityContext:
         fsGroup: 999
@@ -19,14 +19,14 @@ spec:
         runAsGroup: 999
         runAsNonRoot: true
       containers:
-        - name: {{ include "postgres-backup-local.fullname" . }}
+        - name: {{ include "pgdump.fullname" . }}
           image: {{ .Values.image.repository }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           livenessProbe:
             httpGet:
               port: 8080
           volumeMounts:
-            - name: {{ include "postgres-backup-local.fullname" . }}
+            - name: {{ include "pgdump.fullname" . }}
               mountPath: {{ .Values.persistence.mountPath }}
 
           {{- if .Values.persistence.subPath }}
@@ -34,19 +34,19 @@ spec:
           {{- end }}
           envFrom:
             - configMapRef:
-                name: {{ include "postgres-backup-local.fullname" . }}
+                name: {{ include "pgdump.fullname" . }}
             - secretRef:
                  {{- if  not .Values.auth.existingPasswordSecret }}
-                name: {{ include "postgres-backup-local.fullname" . }}
+                name: {{ include "pgdump.fullname" . }}
                 {{ else }}
-                name: {{- .Values.auth.existingPasswordSecret }}
+                name: {{ .Values.auth.existingPasswordSecret }}
                 {{ end }}
       volumes:
   {{- if not .Values.persistence.enabled }}
-        - name: {{ include "postgres-backup-local.fullname" . }}
+        - name: {{ include "pgdump.fullname" . }}
           emptyDir: { }
   {{- else if .Values.persistence.existingClaim }}
-        - name: {{ include "postgres-backup-local.fullname" . }}
+        - name: {{ include "pgdump.fullname" . }}
           persistentVolumeClaim:
             {{- with .Values.persistence.existingClaim }}
             claimName: {{ tpl . $ }}
@@ -54,9 +54,9 @@ spec:
   {{- else }}
   volumeClaimTemplates:
     - metadata:
-        name: {{ include "postgres-backup-local.fullname" . }}
+        name: {{ include "pgdump.fullname" . }}
         labels:
-        {{- include "postgres-backup-local.labels" . | nindent 10 }}
+        {{- include "pgdump.labels" . | nindent 10 }}
         {{ if .Values.persistence.annotations }}
         annotations:
         {{- toYaml .Values.persistence.annotations | nindent 10 }}

@@ -1,6 +1,6 @@
-![Docker Pulls](https://img.shields.io/docker/pulls/prodrigestivill/postgres-backup-local)
+![Docker Pulls](https://img.shields.io/docker/pulls/prodrigestivill/pgdump)
 
-# postgres-backup-local
+# pgdump
 
 Backup PostgresSQL to the local filesystem with periodic rotating backups, based
 on [schickling/postgres-backup-s3](https://hub.docker.com/r/schickling/postgres-backup-s3/). Backup multiple databases
@@ -14,16 +14,16 @@ Supports the following Docker architectures: `linux/amd64`, `linux/arm64`, `linu
 Helm:
 
 ```sh
-helm upgrade --install postgres-backup-local .
+helm upgrade --install pgdump .
 ```
 
 values:
 
 ```yaml
-postgres-backup-local:
+pgdump:
   auth:
     # must match release name
-    existingPasswordSecret: postgres-backup-local-auth
+    existingPasswordSecret: pgdump-auth
   config:
     postgres_host: pg-auth-db-1414-1212-468f-1111-ae0.aivencloud.com
     postgres_port: 21699
@@ -99,7 +99,7 @@ By default this container makes daily backups, but you can start a manual backup
 This script as example creates one backup as the running user and saves it the working folder.
 
 ```sh
-docker run --rm -v "$PWD:/backups" -u "$(id -u):$(id -g)" -e POSTGRES_HOST=postgres -e POSTGRES_DB=dbname -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password  prodrigestivill/postgres-backup-local /backup.sh
+docker run --rm -v "$PWD:/backups" -u "$(id -u):$(id -g)" -e POSTGRES_HOST=postgres -e POSTGRES_DB=dbname -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password  prodrigestivill/pgdump /backup.sh
 ```
 
 ### Automatic Periodic Backups

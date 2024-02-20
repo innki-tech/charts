@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "postgres-backup-local.fullname" . }}
+  name: {{ template "pgdump.fullname" . }}
   labels:
-  {{- include "postgres-backup-local.labels" . | nindent 4 }}
+  {{- include "pgdump.labels" . | nindent 4 }}
 data:
   POSTGRES_HOST: {{ .Values.config.postgres_host | quote }}
   POSTGRES_PORT: {{ .Values.config.postgres_port | quote }}
