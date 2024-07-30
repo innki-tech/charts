@@ -3,7 +3,7 @@ entries:
   pgdump:
   - apiVersion: v2
     appVersion: v1.0.0
-    created: "2024-02-20T14:51:23.841386+01:00"
+    created: "2024-07-30T21:04:57.980816+02:00"
     description: Backup Postgres Database
     digest: ad3cce0f563c2d8a71f26d3edde5ac6e2453fd839f7efd0727165697b05458a6
     keywords:
@@ -24,7 +24,7 @@ entries:
           description: Upgraded `common` chart dependency to version 4.5.2
     apiVersion: v2
     appVersion: 2.7.1
-    created: "2024-02-20T14:51:23.848161+01:00"
+    created: "2024-07-30T21:04:57.988001+02:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -55,6 +55,43 @@ entries:
     urls:
     - https://public-charts.innki.tech/shlink-5.1.2.tgz
     version: 5.1.2
+  taiga:
+  - apiVersion: v2
+    appVersion: 6.0.0-latest
+    created: "2024-07-30T21:04:57.995239+02:00"
+    dependencies:
+    - alias: async-rabbitmq
+      condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami
+      version: ^12.1.2
+    - alias: events-rabbitmq
+      condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami
+      version: ^12.1.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ^12.10.0
+    description: A flexible project management web application.
+    digest: 32a56c5de82e1737ff9862da0a980a64b155a43c295c6aa09f5605fc4acf6bb7
+    home: https://www.taiga.io/
+    icon: https://raw.githubusercontent.com/taigaio/taiga-front/master/app/images/logo-color.png
+    keywords:
+    - taiga
+    - project management
+    - www
+    - http
+    - web
+    - application
+    - python
+    name: taiga
+    sources:
+    - https://github.com/taigaio/taiga-docker
+    urls:
+    - https://public-charts.innki.tech/taiga-0.0.12.tgz
+    version: 0.0.12
   vaultwarden:
   - annotations:
       artifacthub.io/changes: |-
@@ -62,7 +99,7 @@ entries:
           description: Upgraded `common` chart dependency to version 4.5.2
     apiVersion: v2
     appVersion: 1.25.2
-    created: "2024-02-20T14:51:23.854918+01:00"
+    created: "2024-07-30T21:04:58.001347+02:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -92,4 +129,4 @@ entries:
     urls:
     - https://public-charts.innki.tech/vaultwarden-5.3.2.tgz
     version: 5.3.2
-generated: "2024-02-20T14:51:23.840903+01:00"
+generated: "2024-07-30T21:04:57.980391+02:00"
