@@ -44,7 +44,7 @@ spec:
           - name: MAX_AGE
             value: "{{ .Values.protected.maxAge }}"
           {{- if .Values.protected.extraVars }}
-          {{- toYaml .Values.protected.extraVars | nindent 12 }}
+          {{- toYaml .Values.protected.extraVars | nindent 10 }}
           {{- end }}
         ports:
           - name: taiga-protected

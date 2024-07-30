@@ -46,7 +46,7 @@ spec:
           - name: RABBITMQ_PASS
             value: {{ .Values.events.rabbitmq.auth.password }}
           {{- if .Values.events.extraVars }}
-          {{- toYaml .Values.events.extraVars | nindent 12 }}
+          {{- toYaml .Values.events.extraVars | nindent 10 }}
           {{- end }}
         # Original check: wget -q -t 1 --spider http://localhost:8080/api/v1/
         # but it does not work so change localhost to 127.0.0.1

@@ -36,7 +36,7 @@ spec:
         image: {{ template "taiga.front.image" . }}
         imagePullPolicy: {{ .Values.front.image.pullPolicy | quote }}
         {{- if .Values.front.resources }}
-        resources: {{ toYaml .Values.front.resources | nindent 12 }}
+        resources: {{ toYaml .Values.front.resources | nindent 10 }}
         {{- end }}
         env:
           {{ if .Values.ingress.enabled }}
@@ -100,7 +100,7 @@ spec:
             value: "false"
           {{ end }}
           {{- if .Values.front.extraVars }}
-          {{- toYaml .Values.back.extraVars | nindent 12 }}
+          {{- toYaml .Values.back.extraVars | nindent 10 }}
           {{- end }}
         ports:
           - name: taiga-front
