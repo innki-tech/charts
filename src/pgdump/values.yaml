@@ -47,8 +47,10 @@ config:
 ##
 extraEnvVars: []
 
+## @param replicas Number of pgdump replicas
 replicas: 1
 
+## @param persistence Enable pgdump data
 persistence:
 
   ## @param persistence.enabled Enable pgdump data persistence using PVC
@@ -101,3 +103,9 @@ persistence:
   ##   example.io/disk-volume-type: SSD
   ##
   annotations: {}
+
+## @param securityContext Security context for pgdump pods
+securityContext:
+  runAsUser: 999
+  runAsGroup: 999
+  fsGroup: 999

@@ -1,9 +1,9 @@
 ---
 apiVersion: v2
-appVersion: v1.0.2
+appVersion: v1.0.3
 description: Backup Postgres Database
 name: pgdump
-version: 1.0.2
+version: 1.0.3
 keywords:
   - postgresql
   - backup

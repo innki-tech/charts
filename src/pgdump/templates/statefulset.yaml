@@ -14,9 +14,9 @@ spec:
         {{- include "pgdump.labels" . | nindent 8 }}
     spec:
       securityContext:
-        runAsUser: {{ .Values.securityContext.runAsUser | default 999 }}
-        runAsGroup: {{ .Values.securityContext.runAsGroup | default 999 }}
-        fsGroup: {{ .Values.securityContext.fsGroup | default 999 }}
+        runAsUser: {{ .Values.securityContext.runAsUser }}
+        runAsGroup: {{ .Values.securityContext.runAsGroup }}
+        fsGroup: {{ .Values.securityContext.fsGroup }}
       containers:
         - name: {{ include "pgdump.fullname" . }}
           image: {{ .Values.image.repository }}
