@@ -3,7 +3,7 @@ entries:
   formbricks:
   - apiVersion: v2
     appVersion: 2.4.3
-    created: "2025-01-07T16:29:28.746115+01:00"
+    created: "2025-01-07T16:51:27.428319+01:00"
     description: An Open Source Survey Toolbox Helm chart for Kubernetes
     digest: 8fa16d495e3579c3fee779e71af530e3676d139a3a7e8400d16a2b05580796ce
     name: formbricks
@@ -13,8 +13,24 @@ entries:
     version: 2.4.3
   pgdump:
   - apiVersion: v2
+    appVersion: v1.0.2
+    created: "2025-01-07T16:51:27.429779+01:00"
+    description: Backup Postgres Database
+    digest: 246c31ed8ef09c8c082ab4407ad22c5b2225480cf1284ca779c5720cf4a9b973
+    keywords:
+    - postgresql
+    - backup
+    - pgdump
+    maintainers:
+    - email: contact@innki.tech
+      name: Innki Tech
+    name: pgdump
+    urls:
+    - https://public-charts.innki.tech/pgdump-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     appVersion: v1.0.1
-    created: "2025-01-07T16:29:28.746719+01:00"
+    created: "2025-01-07T16:51:27.429529+01:00"
     description: Backup Postgres Database
     digest: 508b318e347861ae22dc75a14c42e4bcd06efdd9bfd8263e4c4a9071b1f6c5d5
     keywords:
@@ -30,7 +46,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: v1.0.0
-    created: "2025-01-07T16:29:28.746442+01:00"
+    created: "2025-01-07T16:51:27.428896+01:00"
     description: Backup Postgres Database
     digest: ad3cce0f563c2d8a71f26d3edde5ac6e2453fd839f7efd0727165697b05458a6
     keywords:
@@ -51,7 +67,7 @@ entries:
           description: Upgraded `common` chart dependency to version 4.5.2
     apiVersion: v2
     appVersion: 2.7.1
-    created: "2025-01-07T16:29:28.754438+01:00"
+    created: "2025-01-07T16:51:27.437147+01:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -85,7 +101,7 @@ entries:
   taiga:
   - apiVersion: v2
     appVersion: 6.0.0-latest
-    created: "2025-01-07T16:29:28.761104+01:00"
+    created: "2025-01-07T16:51:27.444342+01:00"
     dependencies:
     - alias: async-rabbitmq
       condition: rabbitmq.enabled
@@ -126,7 +142,7 @@ entries:
           description: Upgraded `common` chart dependency to version 4.5.2
     apiVersion: v2
     appVersion: 1.25.2
-    created: "2025-01-07T16:29:28.767733+01:00"
+    created: "2025-01-07T16:51:27.450196+01:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -156,4 +172,4 @@ entries:
     urls:
     - https://public-charts.innki.tech/vaultwarden-5.3.2.tgz
     version: 5.3.2
-generated: "2025-01-07T16:29:28.745531+01:00"
+generated: "2025-01-07T16:51:27.427449+01:00"
